@@ -1,10 +1,11 @@
 pom.xml
 pom.xml.asc
+.nrepl-port
 *jar
 *~
 *#
-.log
-/resources/public/js/compiled/out/
+*.log
+/js/
 /lib/
 /classes/
 /target/
