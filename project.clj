@@ -1,6 +1,6 @@
 (defproject tasks "0.1.0-SNAPSHOT"
   :description "A demo website to showcase postagga and milestones in action"
-  :url "http://turbopape.github.io/milestones"
+  :url "http://turbopape.github.io/taskss"
   :license {:name "MIT" 
             :url "http://opensource.or g/licenses/MIT"}
 
@@ -8,10 +8,11 @@
   
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojars.turbopape/milestones "1.0.1"]
-                 [postagga "0.2.4"]
-                 [org.clojure/clojurescript "1.9.229"]]
+                 [postagga "0.2.5"]
+                 [org.clojure/clojurescript "1.9.229"]
+                 [prismatic/dommy "1.1.0"]]
 
-  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
+  :clean-targets ^{:protect false} ["js/compiled" "target"]
   
   :plugins [[lein-figwheel "0.5.9"]]
   
@@ -28,9 +29,10 @@
                                    ;; in the default browser once Figwheel has
                                    ;; started and complied your application.
                                    ;; Comment this out once it no longer serves you.
-                                   :open-urls ["http://localhost:3449/index.html"]}
+                                   ;;:open-urls ["http://localhost:3449/index.html"]
+                                   }
 
-                        :compiler {:main milestones.core
+                        :compiler {:main tasks.core
 
                                    :externs ["https://www.gstatic.com/charts/loader.js"
                                              "http://momentjs.com/downloads/moment.min.js"]
@@ -46,11 +48,10 @@
                        ;; lein cljsbuild once min
                        {:id "min"
                         :source-paths ["src"]
-                        :compiler {:output-to "js/compiled/milestones.js"
+                        :compiler {:output-to "js/compiled/tasks.js"
                                    :externs ["https://www.gstatic.com/charts/loader.js"
-                                             "http://momentjs.com/downloads/moment.min.js"
-                                             "https://npmcdn.com/nlp_compromise@latest/builds/nlp_compromise.min.js"]
-                                   :main milestones.core
+                                             "http://momentjs.com/downloads/moment.min.js"]
+                                   :main tasks.core
                                    :optimizations :advanced
                                    :pretty-print false}}]}
 

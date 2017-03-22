@@ -3,11 +3,11 @@
 ;; Distributed under the MIT License
 (ns tasks.core
   (:require [milestones.dyna-scheduler :refer [schedule]]
-            [milestones.browser-charts :refer [draw-gantt!]]
+            [tasks.browser-charts :refer [draw-gantt!]]
             [postagga.parser :refer [parse-tags-rules]]
-            [taks.parser-rules :refer [rules]]
+            [tasks.parser-rules :refer [rules]]
             [postagga.tagger :refer [viterbi]]
-            [postagga.en-fn-v-model :as en]
+            [postagga.en-fn-v-model :refer [en-model]]
             [dommy.core :as dommy :refer-macros [sel1]]
             [goog.dom :as dom]
             [goog.events :as events]))
@@ -15,8 +15,6 @@
 (def schedule-btn (dom/getElement "schedule"))
 
 (def error-zone (sel1 [:body :#portfolio :#dzone]))
-
-(def en-model en/model)
 
 (def pos-tagger (partial viterbi en-model))
 
