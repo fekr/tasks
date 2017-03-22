@@ -1,14 +1,9 @@
 # tasks
 
-A Clojure library designed to ... well, that part is up to you.
+A Website to showcase the [milestones]( http://turbopape.github.io/milestones/) and [postagga](https://github.com/turbopape/postagga) libs.
 
-## Usage
+Coded with love by [fekr.tech](http://www.fekr.tech)
 
-FIXME
+Copyright © 2017 , Rafik NACCACHE <rafik@fekr.tech>
 
-## License
-
-Copyright © 2017 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the MIT License.
