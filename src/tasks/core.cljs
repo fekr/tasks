@@ -6,8 +6,11 @@
             [tasks.browser-charts :refer [draw-gantt!]]
             [postagga.parser :refer [parse-tags-rules]]
             [tasks.parser-rules :refer [rules]]
-            [postagga.tagger :refer [viterbi]]
+            [postagga.tools :as tools]
+            [postagga.tagger :refer [viterbi patch-w-entity]]
+            [postagga.trie :as trie]
             [postagga.en-fn-v-model :refer [en-model]]
+            [postagga.en-tr-names :as tr-names]
             [dommy.core :as dommy :refer-macros [sel1]]
             [goog.dom :as dom]
             [goog.events :as events]))
@@ -16,24 +19,25 @@
 
 (def error-zone (sel1 [:body :#portfolio :#dzone]))
 
-(def pos-tagger (partial viterbi en-model))
+(def pos-tagger
+  #(patch-w-entity  0.7 % tr-names/en-names-trie
+                    (viterbi en-model % )
+                    "NP"))
 
-(defn sentences
-  "A function that takes a paragraph, i.e, a set of tasks declaration
-  and spits a vector of sentences"
-  [tasks-str]
-  ;;TODO - actual detection: regexp in js split by . (point)
-  ["milestone 5 : goal reached  when tasks 2, 3 are complete."
-   "When task 1, 2, 3 are achieved Rafik can work 3 minutes with priority 4 on task 4 in order to Eat some bread."
-   "for task 1 with priority 3 Rafik will have to eat bread in 2 minutes, after  tasks 3, 2, 15."
-   "Rafik shall eat bread in 2 minutes, with priority 4, after  task 3,2 and 15."])
 
-(defn tokenizer
-  "Given a sentence, yields a vector of tokens"
-  [sentence]
-  ;;TODO: tokenizer as a regexp in js split by (\s) (space)
-  )
 
+(defn split-sep
+  [sep str]
+  (as-> str t
+    (.split t (js/RegExp. sep))
+    (js->clj t)
+    (filter (comp not empty?) t)
+    (into [] t)))
+
+(def sentences (partial split-sep "\\."))
+
+(def tokenizer (comp (partial mapv #(.toLowerCase %)) (partial split-sep "\\s|\\r|\\n|\\,|\\;|\\:")))
+ 
 (defn schedule-and-show!
   [schedule-start
    default-duration-unit

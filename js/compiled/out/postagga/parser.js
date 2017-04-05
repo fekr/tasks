@@ -54,8 +54,8 @@ if(cljs.core.seq.call(null,tag_stack)){
 if((cljs.core.first.call(null,tag_stack) instanceof cljs.core.Keyword)){
 return tag_stack;
 } else {
-var G__45596 = cljs.core.rest.call(null,tag_stack);
-tag_stack = G__45596;
+var G__45616 = cljs.core.rest.call(null,tag_stack);
+tag_stack = G__45616;
 continue;
 }
 } else {
@@ -77,20 +77,20 @@ var output = cljs.core.PersistentArrayMap.EMPTY;
 while(true){
 if((cljs.core.seq.call(null,input_items)) && (cljs.core.seq.call(null,tag_stack))){
 var input_item = cljs.core.first.call(null,input_items);
-var map__45599 = postagga.parser.accept_tag.call(null,input_item,tag_stack);
-var map__45599__$1 = ((((!((map__45599 == null)))?((((map__45599.cljs$lang$protocol_mask$partition0$ & (64))) || (map__45599.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__45599):map__45599);
-var accept_QMARK_ = map__45599__$1;
-var step = cljs.core.get.call(null,map__45599__$1,new cljs.core.Keyword(null,"step","step",1288888124));
-var new_stack = cljs.core.get.call(null,map__45599__$1,new cljs.core.Keyword(null,"new-stack","new-stack",1596588953));
+var map__45619 = postagga.parser.accept_tag.call(null,input_item,tag_stack);
+var map__45619__$1 = ((((!((map__45619 == null)))?((((map__45619.cljs$lang$protocol_mask$partition0$ & (64))) || (map__45619.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__45619):map__45619);
+var accept_QMARK_ = map__45619__$1;
+var step = cljs.core.get.call(null,map__45619__$1,new cljs.core.Keyword(null,"step","step",1288888124));
+var new_stack = cljs.core.get.call(null,map__45619__$1,new cljs.core.Keyword(null,"new-stack","new-stack",1596588953));
 if(cljs.core.truth_(step)){
-var G__45601 = input_items;
-var G__45602 = new_stack;
-var G__45603 = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"step","step",1288888124),step,new cljs.core.Keyword(null,"items","items",1031954938),cljs.core.PersistentVector.EMPTY], null);
-var G__45604 = ((cljs.core.empty_QMARK_.call(null,cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"items","items",1031954938))))?output:cljs.core.assoc.call(null,output,cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"step","step",1288888124)),cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"items","items",1031954938))));
-input_items = G__45601;
-tag_stack = G__45602;
-output_stack = G__45603;
-output = G__45604;
+var G__45621 = input_items;
+var G__45622 = new_stack;
+var G__45623 = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"step","step",1288888124),step,new cljs.core.Keyword(null,"items","items",1031954938),cljs.core.PersistentVector.EMPTY], null);
+var G__45624 = ((cljs.core.empty_QMARK_.call(null,cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"items","items",1031954938))))?output:cljs.core.assoc.call(null,output,cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"step","step",1288888124)),cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"items","items",1031954938))));
+input_items = G__45621;
+tag_stack = G__45622;
+output_stack = G__45623;
+output = G__45624;
 continue;
 } else {
 if(cljs.core.truth_((function (){var and__44424__auto__ = cljs.core.not.call(null,accept_QMARK_);
@@ -103,14 +103,14 @@ return and__44424__auto__;
 var temp__4655__auto__ = postagga.parser.fast_forward.call(null,tag_stack);
 if(cljs.core.truth_(temp__4655__auto__)){
 var ffw_stack = temp__4655__auto__;
-var G__45605 = input_items;
-var G__45606 = ffw_stack;
-var G__45607 = output_stack;
-var G__45608 = output;
-input_items = G__45605;
-tag_stack = G__45606;
-output_stack = G__45607;
-output = G__45608;
+var G__45625 = input_items;
+var G__45626 = ffw_stack;
+var G__45627 = output_stack;
+var G__45628 = output;
+input_items = G__45625;
+tag_stack = G__45626;
+output_stack = G__45627;
+output = G__45628;
 continue;
 } else {
 return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"error","error",-978969032),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"step","step",1288888124),cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"step","step",1288888124)),new cljs.core.Keyword(null,"expected","expected",1583670997),cljs.core.first.call(null,tag_stack),new cljs.core.Keyword(null,"item","item",249373802),input_item], null)], null);
@@ -119,14 +119,14 @@ return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"er
 if(cljs.core.not.call(null,accept_QMARK_)){
 return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"error","error",-978969032),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"output","output",-1105869043),output,new cljs.core.Keyword(null,"step","step",1288888124),cljs.core.get.call(null,output_stack,new cljs.core.Keyword(null,"step","step",1288888124)),new cljs.core.Keyword(null,"expected","expected",1583670997),cljs.core.first.call(null,tag_stack),new cljs.core.Keyword(null,"item","item",249373802),input_item], null)], null);
 } else {
-var G__45609 = cljs.core.rest.call(null,input_items);
-var G__45610 = new_stack;
-var G__45611 = (cljs.core.truth_(postagga.parser.get_value_QMARK_.call(null,cljs.core.first.call(null,tag_stack)))?cljs.core.merge_with.call(null,cljs.core.conj,output_stack,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"items","items",1031954938),cljs.core.get.call(null,input_item,(0))], null)):output_stack);
-var G__45612 = output;
-input_items = G__45609;
-tag_stack = G__45610;
-output_stack = G__45611;
-output = G__45612;
+var G__45629 = cljs.core.rest.call(null,input_items);
+var G__45630 = new_stack;
+var G__45631 = (cljs.core.truth_(postagga.parser.get_value_QMARK_.call(null,cljs.core.first.call(null,tag_stack)))?cljs.core.merge_with.call(null,cljs.core.conj,output_stack,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"items","items",1031954938),cljs.core.get.call(null,input_item,(0))], null)):output_stack);
+var G__45632 = output;
+input_items = G__45629;
+tag_stack = G__45630;
+output_stack = G__45631;
+output = G__45632;
 continue;
 
 }
@@ -177,10 +177,10 @@ var cur_parse_result = postagga.parser.parse_sentence_w_a_tag_stack.call(null,po
 var temp__4655__auto__ = cljs.core.get.call(null,cur_parse_result,new cljs.core.Keyword(null,"error","error",-978969032));
 if(cljs.core.truth_(temp__4655__auto__)){
 var err = temp__4655__auto__;
-var G__45613 = cljs.core.rest.call(null,rem_rules);
-var G__45614 = cljs.core.conj.call(null,errors,err);
-rem_rules = G__45613;
-errors = G__45614;
+var G__45633 = cljs.core.rest.call(null,rem_rules);
+var G__45634 = cljs.core.conj.call(null,errors,err);
+rem_rules = G__45633;
+errors = G__45634;
 continue;
 } else {
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"errors","errors",-908790718),null,new cljs.core.Keyword(null,"result","result",1415092211),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"rule","rule",729973257),new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(cur_rule),new cljs.core.Keyword(null,"data","data",-232669377),cljs.core.get.call(null,cur_parse_result,new cljs.core.Keyword(null,"result","result",1415092211))], null)], null);
@@ -192,4 +192,4 @@ break;
 }
 });
 
-//# sourceMappingURL=parser.js.map?rel=1490223660618
+//# sourceMappingURL=parser.js.map?rel=1491402063554

@@ -1,31 +1,34 @@
 // Compiled by ClojureScript 1.9.229 {}
 goog.provide('tasks.core');
 goog.require('cljs.core');
+goog.require('postagga.en_tr_names');
 goog.require('goog.dom');
 goog.require('postagga.en_fn_v_model');
 goog.require('postagga.tagger');
 goog.require('dommy.core');
 goog.require('tasks.browser_charts');
 goog.require('postagga.parser');
+goog.require('postagga.tools');
+goog.require('postagga.trie');
 goog.require('goog.events');
 goog.require('milestones.dyna_scheduler');
 goog.require('tasks.parser_rules');
 tasks.core.schedule_btn = goog.dom.getElement("schedule");
 tasks.core.error_zone = document.querySelector("body #portfolio #dzone");
-tasks.core.pos_tagger = cljs.core.partial.call(null,postagga.tagger.viterbi,postagga.en_fn_v_model.en_model);
-/**
- * A function that takes a paragraph, i.e, a set of tasks declaration
- *   and spits a vector of sentences
- */
-tasks.core.sentences = (function tasks$core$sentences(tasks_str){
-return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, ["milestone 5 : goal reached  when tasks 2, 3 are complete.","When task 1, 2, 3 are achieved Rafik can work 3 minutes with priority 4 on task 4 in order to Eat some bread.","for task 1 with priority 3 Rafik will have to eat bread in 2 minutes, after  tasks 3, 2, 15.","Rafik shall eat bread in 2 minutes, with priority 4, after  task 3,2 and 15."], null);
+tasks.core.pos_tagger = (function tasks$core$pos_tagger(p1__52895_SHARP_){
+return postagga.tagger.patch_w_entity.call(null,0.7,p1__52895_SHARP_,postagga.en_tr_names.en_names_trie,postagga.tagger.viterbi.call(null,postagga.en_fn_v_model.en_model,p1__52895_SHARP_),"NP");
 });
-/**
- * Given a sentence, yields a vector of tokens
- */
-tasks.core.tokenizer = (function tasks$core$tokenizer(sentence){
-return null;
+tasks.core.split_sep = (function tasks$core$split_sep(sep,str){
+var t = str;
+var t__$1 = t.split((new RegExp(sep)));
+var t__$2 = cljs.core.js__GT_clj.call(null,t__$1);
+var t__$3 = cljs.core.filter.call(null,cljs.core.comp.call(null,cljs.core.not,cljs.core.empty_QMARK_),t__$2);
+return cljs.core.into.call(null,cljs.core.PersistentVector.EMPTY,t__$3);
 });
+tasks.core.sentences = cljs.core.partial.call(null,tasks.core.split_sep,"\\.");
+tasks.core.tokenizer = cljs.core.comp.call(null,cljs.core.partial.call(null,cljs.core.mapv,(function (p1__52896_SHARP_){
+return p1__52896_SHARP_.toLowerCase();
+})),cljs.core.partial.call(null,tasks.core.split_sep,"\\s|\\r|\\n|\\,|\\;|\\:"));
 tasks.core.schedule_and_show_BANG_ = (function tasks$core$schedule_and_show_BANG_(schedule_start,default_duration_unit,in_div_id){
 var tasks_str = document.getElementById("default-template").value;
 var tasks_sentences = tasks.core.sentences.call(null,tasks_str);
@@ -47,4 +50,4 @@ goog.events.listen(tasks.core.schedule_btn,"click",(function (){
 return tasks.core.schedule_and_show_BANG_.call(null,moment().format(),"hours","gantt-chart");
 }));
 
-//# sourceMappingURL=core.js.map?rel=1490224021611
+//# sourceMappingURL=core.js.map?rel=1491432344381

@@ -1,8 +1,10 @@
 goog.addDependency("base.js", ['goog'], []);
 goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.object', 'goog.math.Integer', 'goog.string.StringBuffer', 'goog.array', 'goog.math.Long']);
+goog.addDependency("../postagga/en_tr_names.js", ['postagga.en_tr_names'], ['cljs.core']);
 goog.addDependency("../postagga/en_fn_v_model.js", ['postagga.en_fn_v_model'], ['cljs.core']);
 goog.addDependency("../postagga/tools.js", ['postagga.tools'], ['cljs.core']);
-goog.addDependency("../postagga/tagger.js", ['postagga.tagger'], ['cljs.core', 'postagga.tools']);
+goog.addDependency("../postagga/trie.js", ['postagga.trie'], ['cljs.core']);
+goog.addDependency("../postagga/tagger.js", ['postagga.tagger'], ['cljs.core', 'postagga.tools', 'postagga.trie']);
 goog.addDependency("../tasks/browser_charts.js", ['tasks.browser_charts'], ['cljs.core']);
 goog.addDependency("../postagga/parser.js", ['postagga.parser'], ['postagga.tagger', 'cljs.core']);
 goog.addDependency("../milestones/graph_utilities.js", ['milestones.graph_utilities'], ['cljs.core']);
@@ -11,7 +13,7 @@ goog.addDependency("../tasks/parser_rules.js", ['tasks.parser_rules'], ['cljs.co
 goog.addDependency("../dommy/utils.js", ['dommy.utils'], ['cljs.core']);
 goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
 goog.addDependency("../dommy/core.js", ['dommy.core'], ['cljs.core', 'dommy.utils', 'clojure.string']);
-goog.addDependency("../tasks/core.js", ['tasks.core'], ['goog.dom', 'postagga.en_fn_v_model', 'postagga.tagger', 'cljs.core', 'tasks.browser_charts', 'postagga.parser', 'milestones.dyna_scheduler', 'tasks.parser_rules', 'dommy.core', 'goog.events']);
+goog.addDependency("../tasks/core.js", ['tasks.core'], ['postagga.en_tr_names', 'goog.dom', 'postagga.en_fn_v_model', 'postagga.tagger', 'cljs.core', 'tasks.browser_charts', 'postagga.parser', 'postagga.tools', 'postagga.trie', 'milestones.dyna_scheduler', 'tasks.parser_rules', 'dommy.core', 'goog.events']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers', 'goog.async.nextTick']);

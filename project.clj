@@ -1,6 +1,6 @@
 (defproject tasks "0.1.0-SNAPSHOT"
   :description "A demo website to showcase postagga and milestones in action"
-  :url "http://turbopape.github.io/taskss"
+  :url "http://turbopape.github.io/tasks"
   :license {:name "MIT" 
             :url "http://opensource.or g/licenses/MIT"}
 
@@ -8,7 +8,7 @@
   
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojars.turbopape/milestones "1.0.1"]
-                 [postagga "0.2.5"]
+                 [postagga "0.2.6"]
                  [org.clojure/clojurescript "1.9.229"]
                  [prismatic/dommy "1.1.0"]]
 
