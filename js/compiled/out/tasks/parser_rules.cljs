@@ -17,9 +17,25 @@
 #_:task-name
 
 (def rules
-  [{:id :sample-rule-0 ;;"Mehdi can work 3 minutes with priority 1 on task 1 in order to Eat some bread"
-    :optional-steps []
-    :rule [:resource-id
-           #{:get-value #{"EX"}#{"VVP"}}
+  [{:id :milestone ;;milestone 5 : goal reached  when tasks 2, 3 are complete. 
+    :optional-steps [:punct :predecessors-end]
+    :rule [:milestone-id
+           #{#{"NN"}}
+           #{:get-value #{"CD"}}
+
+           :punct
+           #{#{":"}}
            
+           :task-name
+           #{:get-value #{"NN"}}
+           #{:get-value #{"VVN"}}
+           
+           :predecessors
+           #{#{"WRB"}}
+           #{#{"NNS"}}
+           #{:get-value :multi #{"CD"}}
+
+           :predecessors-end
+           #{#{"VBP"}}
+           #{#{"JJ"}}
            ]}])

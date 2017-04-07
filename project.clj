@@ -8,8 +8,8 @@
   
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojars.turbopape/milestones "1.0.1"]
-                 [postagga "0.2.6"]
-                 [org.clojure/clojurescript "1.9.229"]
+                 [postagga "0.2.7"]
+                 [org.clojure/clojurescript "1.9.494"]
                  [prismatic/dommy "1.1.0"]]
 
   :clean-targets ^{:protect false} ["js/compiled" "target"]

@@ -1,20 +1,20 @@
-// Compiled by ClojureScript 1.9.229 {}
+// Compiled by ClojureScript 1.9.494 {}
 goog.provide('postagga.tools');
 goog.require('cljs.core');
 /**
  * Given a matrix represented by a map {[i j] x}, produces the column such as j = column  
  */
 postagga.tools.get_column = (function postagga$tools$get_column(matrix,column){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__45567_SHARP_){
-return cljs.core._EQ_.call(null,cljs.core.get.call(null,cljs.core.key.call(null,p1__45567_SHARP_),(1)),column);
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__46062_SHARP_){
+return cljs.core._EQ_.call(null,cljs.core.get.call(null,cljs.core.key.call(null,p1__46062_SHARP_),(1)),column);
 }),matrix));
 });
 /**
  * Given a matrix represented by a map {[i j] x}, produces the column such as j = column  
  */
 postagga.tools.get_row = (function postagga$tools$get_row(matrix,row){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__45568_SHARP_){
-return cljs.core._EQ_.call(null,cljs.core.get.call(null,cljs.core.key.call(null,p1__45568_SHARP_),(0)),row);
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__46063_SHARP_){
+return cljs.core._EQ_.call(null,cljs.core.get.call(null,cljs.core.key.call(null,p1__46063_SHARP_),(0)),row);
 }),matrix));
 });
 /**
@@ -35,11 +35,11 @@ var bigrams2 = postagga.tools.bigrams.call(null,str2);
 var intersection = clojure.set.intersection.call(null,bigrams1,bigrams2);
 var union = clojure.set.union.call(null,bigrams1,bigrams2);
 try{return (cljs.core.count.call(null,intersection) / cljs.core.count.call(null,union));
-}catch (e45570){if((e45570 instanceof Error)){
-var e = e45570;
+}catch (e46065){if((e46065 instanceof Error)){
+var e = e46065;
 return (0);
 } else {
-throw e45570;
+throw e46065;
 
 }
 }});
@@ -50,4 +50,4 @@ postagga.tools.find_first = (function postagga$tools$find_first(f,coll){
 return cljs.core.first.call(null,cljs.core.filter.call(null,f,coll));
 });
 
-//# sourceMappingURL=tools.js.map?rel=1491402063112
+//# sourceMappingURL=tools.js.map?rel=1491522834557

@@ -1,23 +1,23 @@
-// Compiled by ClojureScript 1.9.229 {}
+// Compiled by ClojureScript 1.9.494 {}
 goog.provide('dommy.utils');
 goog.require('cljs.core');
 /**
  * Dissociate this keyseq from m, removing any empty maps created as a result
  * (including at the top-level).
  */
-dommy.utils.dissoc_in = (function dommy$utils$dissoc_in(m,p__45565){
-var vec__45569 = p__45565;
-var seq__45570 = cljs.core.seq.call(null,vec__45569);
-var first__45571 = cljs.core.first.call(null,seq__45570);
-var seq__45570__$1 = cljs.core.next.call(null,seq__45570);
-var k = first__45571;
-var ks = seq__45570__$1;
+dommy.utils.dissoc_in = (function dommy$utils$dissoc_in(m,p__46347){
+var vec__46351 = p__46347;
+var seq__46352 = cljs.core.seq.call(null,vec__46351);
+var first__46353 = cljs.core.first.call(null,seq__46352);
+var seq__46352__$1 = cljs.core.next.call(null,seq__46352);
+var k = first__46353;
+var ks = seq__46352__$1;
 if(cljs.core.truth_(m)){
-var temp__4655__auto__ = (function (){var and__44424__auto__ = ks;
-if(and__44424__auto__){
-return dommy$utils$dissoc_in.call(null,m.call(null,k),ks);
+var temp__4655__auto__ = (function (){var and__44814__auto__ = ks;
+if(and__44814__auto__){
+return dommy.utils.dissoc_in.call(null,m.call(null,k),ks);
 } else {
-return and__44424__auto__;
+return and__44814__auto__;
 }
 })();
 if(cljs.core.truth_(temp__4655__auto__)){
@@ -44,13 +44,13 @@ return Array.prototype.slice.call(array_like);
  */
 dommy.utils.as_str = (function dommy$utils$as_str(s){
 if((s instanceof cljs.core.Keyword)){
-return [cljs.core.str((function (){var G__45573 = cljs.core.namespace.call(null,s);
-if((G__45573 == null)){
+return [cljs.core.str.cljs$core$IFn$_invoke$arity$1((function (){var G__46355 = cljs.core.namespace.call(null,s);
+if((G__46355 == null)){
 return null;
 } else {
-return [cljs.core.str(G__45573),cljs.core.str("/")].join('');
+return [cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__46355),cljs.core.str.cljs$core$IFn$_invoke$arity$1("/")].join('');
 }
-})()),cljs.core.str(cljs.core.name.call(null,s))].join('');
+})()),cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.name.call(null,s))].join('');
 } else {
 return s;
 }
@@ -60,8 +60,8 @@ return s;
  * only will be used when Element::classList doesn't exist
  */
 dommy.utils.class_match_QMARK_ = (function dommy$utils$class_match_QMARK_(class_name,class$,idx){
-var and__44424__auto__ = ((idx === (0))) || ((" " === class_name.charAt((idx - (1)))));
-if(and__44424__auto__){
+var and__44814__auto__ = ((idx === (0))) || ((" " === class_name.charAt((idx - (1)))));
+if(and__44814__auto__){
 var total_len = class_name.length;
 var stop = (idx + class$.length);
 if((stop <= total_len)){
@@ -70,7 +70,7 @@ return ((stop === total_len)) || ((" " === class_name.charAt(stop)));
 return null;
 }
 } else {
-return and__44424__auto__;
+return and__44814__auto__;
 }
 });
 /**
@@ -85,8 +85,8 @@ if((i >= (0))){
 if(dommy.utils.class_match_QMARK_.call(null,class_name,class$,i)){
 return i;
 } else {
-var G__45574 = (i + class$.length);
-start_from = G__45574;
+var G__46356 = (i + class$.length);
+start_from = G__46356;
 continue;
 }
 } else {
@@ -102,10 +102,10 @@ var class_len = class_name.length;
 var temp__4655__auto__ = dommy.utils.class_index.call(null,class_name,class$);
 if(cljs.core.truth_(temp__4655__auto__)){
 var i = temp__4655__auto__;
-var G__45575 = (function (){var end = (i + class$.length);
-return [cljs.core.str((((end < class_len))?[cljs.core.str(class_name.substring((0),i)),cljs.core.str(class_name.substr((end + (1))))].join(''):class_name.substring((0),(i - (1)))))].join('');
+var G__46357 = (function (){var end = (i + class$.length);
+return [cljs.core.str.cljs$core$IFn$_invoke$arity$1((((end < class_len))?[cljs.core.str.cljs$core$IFn$_invoke$arity$1(class_name.substring((0),i)),cljs.core.str.cljs$core$IFn$_invoke$arity$1(class_name.substr((end + (1))))].join(''):class_name.substring((0),(i - (1)))))].join('');
 })();
-class_name = G__45575;
+class_name = G__46357;
 continue;
 } else {
 return class_name;
@@ -114,4 +114,4 @@ break;
 }
 });
 
-//# sourceMappingURL=utils.js.map?rel=1490223980860
+//# sourceMappingURL=utils.js.map?rel=1491522835333

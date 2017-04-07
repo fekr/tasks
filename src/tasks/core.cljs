@@ -24,8 +24,6 @@
                     (viterbi en-model % )
                     "NP"))
 
-
-
 (defn split-sep
   [sep str]
   (as-> str t
@@ -37,7 +35,8 @@
 (def sentences (partial split-sep "\\."))
 
 (def tokenizer (comp (partial mapv #(.toLowerCase %)) (partial split-sep "\\s|\\r|\\n|\\,|\\;|\\:")))
- 
+
+
 (defn schedule-and-show!
   [schedule-start
    default-duration-unit
